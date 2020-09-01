@@ -12,9 +12,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
 
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['makeitrun.pythonanywhere.com', '127.0.0.1', 'localhost']
 AUTH_USER_MODEL = 'account.User'
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '698030897211-ipfn9lh0f2tc4jeuf0teudhd814r2veu.apps.googleusercontent.com'
@@ -71,7 +71,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    #'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -102,7 +102,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'mysite.wsgi.application'
+#WSGI_APPLICATION = 'mysite.wsgi.application'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 # Database
@@ -110,12 +110,8 @@ SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 
 DATABASES = {
     'default': {
-        'ENGINE':'django.db.backends.postgresql',
-        'NAME':'mysite',
-        'USER':'postgres',
-        'PASSWORD': 'root',
-        'HOST': '127.0.0.1',
-        'PORT' : '5555'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
